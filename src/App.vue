@@ -23,3 +23,16 @@ export default {
   }),
 };
 </script>
+<style>
+@font-face {
+  font-family: "SF";
+  src: local("SF"),
+   url(./fonts/SF/SFProText-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Ubuntu";
+  src: local("Ubuntu"),
+   url(./fonts/Ubuntu/Ubuntu-Bold.ttf) format("truetype");
+}
+
+</style>

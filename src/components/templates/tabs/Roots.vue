@@ -50,9 +50,9 @@ export default {
 </script>
 
 <style scoped>
-  #lateral .v-floatbtn {
+  .v-floatbtn {
     position:fixed;
-right:0;
-bottom:0;
+    right:0;
+    bottom:0;
     margin: 0 0 16px 16px;
   }</style>

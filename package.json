@@ -13,6 +13,8 @@
     "core-js": "^3.6.5",
     "vee-validate": "^3.4.5",
     "vue": "^2.6.11",
+    "vue-easy-lightbox": "^1.0.0-rc.3",
+    "vue-gallery-slideshow": "^1.5.2",
     "vue-router": "^3.4.9",
     "vuetify": "^2.2.11"
   },

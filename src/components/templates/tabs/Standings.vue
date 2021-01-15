@@ -1,12 +1,13 @@
 <template>
     <v-simple-table dark>
+      <h2>GROUP A</h2>
     <template v-slot:default>
       <thead>
         <tr>
           <th class="text-left">
            #
           </th>
-          <th class="text-left">
+          <th class="text-left" >
            Team
           </th>
           <th class="text-left">
@@ -31,10 +32,10 @@
       </thead>
       <tbody>
         <tr
-          v-for="item in teams"
+          v-for="(item, index) in teams"
           :key="item.team"
         >
-          <td>{{ index }}</td>
+          <td>{{ index + 1 }}</td>
           <td>{{ item.team }}</td>
           <td>{{ item.played}}</td>
           <td>{{ item.wins }}</td>
@@ -63,6 +64,33 @@ export default {
             games_played:3,
             points: 9
           },
+          {
+            team: 'Dallas All Stars',
+            played: 5,
+            wins: 3,
+            draws: 0,
+            loss:1,
+            games_played:3,
+            points: 9
+          },
+          {
+            team: 'Kayole Sportif',
+            played: 5,
+            wins: 3,
+            draws: 0,
+            loss:1,
+            games_played:3,
+            points: 9
+          },
+          {
+            team: 'Umeme bees',
+            played: 5,
+            wins: 3,
+            draws: 0,
+            loss:1,
+            games_played:3,
+            points: 9
+          }
         ],
       }
     }
@@ -71,5 +99,7 @@ export default {
 </script>
 
 <style>
-
+.theme--dark.v-data-table{
+  background-color: transparent !important
+}
 </style>

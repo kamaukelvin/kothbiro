@@ -7,7 +7,7 @@
     >
       <v-toolbar-title>
         <h1 class="title">
-          KOTHBIRO <span class="year">@45 </span>
+          KOTHBIRO <span class="year">2020/2021 </span>
           <img src="/img/vector.png" alt="White Logo" class="" /></h1
       ></v-toolbar-title>
 
@@ -26,6 +26,7 @@ export default {};
 .title {
   color: #ffff;
   font-size: 24px;
+  font-family: "Ubuntu", Helvetica, Arial !important;
 }
 .title::after {
   content: "";
