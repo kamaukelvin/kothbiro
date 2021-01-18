@@ -29,32 +29,38 @@
         </v-card-text>
       </v-tab-item>
       <v-tab-item>
-        
           <Gallery />
    
       </v-tab-item>
+       <v-tab-item>
+        <v-card-text>
+          <TopScorers />
+        </v-card-text>
+          </v-tab-item>
     </v-tabs-items>
   </div>
 </template>
 
 <script>
-import Nav from "../../templates/nav";
-import Roots from "../../templates/tabs/Roots";
-import Standings from "../../templates/tabs/Standings";
-import Knockout from "../../templates/tabs/Knockout";
-import Gallery from '../../templates/tabs/Gallery'
+import Nav from "../../components/templates/nav";
+import Roots from "../../components/templates/tabs/Roots";
+import Standings from "../../components/templates/tabs/Standings";
+import Knockout from "../../components/templates/tabs/Knockout";
+import Gallery from '../../components/templates/tabs/Gallery'
+import TopScorers from '../../components/templates/tabs/TopScorers.vue';
 export default {
   components: {
     Nav,
     Roots,
     Standings,
     Knockout,
-    Gallery
+    Gallery,
+    TopScorers
   },
   data() {
     return {
       tab: null,
-      items: ["Roots", "Standings", "Knockout", "Gallery"],
+      items: ["Roots", "Standings", "Knockout", "Gallery", "Top Scorers"],
       // contents:[<Roots/>,<Standings/>, <Knockout/>]
     };
   },

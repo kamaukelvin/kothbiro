@@ -1,56 +1,24 @@
 <template>
 <div>
+   <v-subheader class="subheader">Round of 16(1/8)</v-subheader>
       <v-card
     class="mx-auto games-card"
     max-width="400"
     tile
+       v-for="(item, index) in games"
+       :key="index"
   >
+ 
    <v-list-item two-line>
       <v-list-item-content>
-        <v-list-item-subtitle>Digo United<span class="float-right">2</span></v-list-item-subtitle>
-        <v-list-item-subtitle>Dallas All Stars<span class="float-right">2</span></v-list-item-subtitle>
+        <v-list-item-subtitle @click="navigate(item.home)">{{item.home}}<span class="float-right">{{item.home_score}}</span></v-list-item-subtitle>
+        <v-list-item-subtitle @click="navigate(item.away)">{{item.away}}<span class="float-right">{{item.away_score}}</span></v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
    <v-list-item two-line>
       <v-list-item-content>
-        <v-list-item-subtitle>Digo United<span class="float-right">2</span></v-list-item-subtitle>
-        <v-list-item-subtitle>Dallas All Stars<span class="float-right">1</span></v-list-item-subtitle>
-      </v-list-item-content>
-    </v-list-item>
-      </v-card>
-      <v-card
-    class="mx-auto games-card"
-    max-width="400"
-    tile
-  >
-   <v-list-item two-line>
-      <v-list-item-content>
-        <v-list-item-subtitle>Digo United<span class="float-right">2</span></v-list-item-subtitle>
-        <v-list-item-subtitle>Dallas All Stars<span class="float-right">2</span></v-list-item-subtitle>
-      </v-list-item-content>
-    </v-list-item>
-   <v-list-item two-line>
-      <v-list-item-content>
-        <v-list-item-subtitle>Digo United<span class="float-right">2</span></v-list-item-subtitle>
-        <v-list-item-subtitle>Dallas All Stars<span class="float-right">1</span></v-list-item-subtitle>
-      </v-list-item-content>
-    </v-list-item>
-      </v-card>
-      <v-card
-    class="mx-auto games-card"
-    max-width="400"
-    tile
-  >
-   <v-list-item two-line>
-      <v-list-item-content>
-        <v-list-item-subtitle>Digo United<span class="float-right">2</span></v-list-item-subtitle>
-        <v-list-item-subtitle>Dallas All Stars<span class="float-right">2</span></v-list-item-subtitle>
-      </v-list-item-content>
-    </v-list-item>
-   <v-list-item two-line>
-      <v-list-item-content>
-        <v-list-item-subtitle>Digo United<span class="float-right">2</span></v-list-item-subtitle>
-        <v-list-item-subtitle>Dallas All Stars<span class="float-right">1</span></v-list-item-subtitle>
+        <v-list-item-subtitle @click="navigate(item.away)">{{item.away}}<span class="float-right">{{item.home_score}}</span></v-list-item-subtitle>
+        <v-list-item-subtitle @click="navigate(item.home)">{{item.home}}<span class="float-right">{{item.away_score}}</span></v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
       </v-card>
@@ -83,19 +51,33 @@
 <script>
 export default {
     name: "Knockout",
-        data: () => ({ value: 1 }),
-
-    computed: {
-      color () {
-        switch (this.value) {
-          case 0: return 'blue-grey'
-          case 1: return 'teal'
-          case 2: return 'brown'
-          case 3: return 'indigo'
-          default: return 'blue-grey'
-        }
-      },
-    },
+ data () {
+      return {
+        games: [
+          {
+            home: 'Digo United',
+            away: 'Dallas All Stars',
+            home_score: 3,
+            away_score: 0,
+            date:'11/1/2021',
+            time:'10.00 am',
+          },
+          {
+            home: 'Digo United',
+            away: 'Dallas All Stars',
+            home_score: 3,
+            away_score: 0,
+            date:'11/1/2021',
+            time:'10.00 am',
+          },
+          ]
+      }},
+    methods:{
+      navigate(team){
+        this.$router.push({ path: `/details/${team}` }) 
+      }
+   
+    }
 
 }
 </script>
@@ -138,5 +120,8 @@ margin-bottom:10px
 .v-item-group.v-bottom-navigation .v-btn.v-btn--active {
     background-color: #4a80f0;
     color: white
+}
+.subheader{
+  color: #989898;
 }
 </style>

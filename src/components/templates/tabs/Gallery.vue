@@ -1,5 +1,6 @@
 <template>
   <div>
+  
     <v-row no-gutters>
       <v-col v-for="(image, i) in images" :key="i">
         <img class="image" :src="image" @click="index = i" />

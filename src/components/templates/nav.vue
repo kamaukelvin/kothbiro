@@ -7,13 +7,14 @@
     >
       <v-toolbar-title>
         <h1 class="title">
-          KOTHBIRO <span class="year">2020/2021 </span>
+           <router-link to="/">KOTHBIRO</router-link>  <span class="year">2020/2021 </span>
           <img src="/img/vector.png" alt="White Logo" class="" /></h1
       ></v-toolbar-title>
-
+  <router-link to="/details">
       <v-btn icon>
         <v-icon><img src="/img/vector.png" alt="White Logo" class=""/></v-icon>
       </v-btn>
+        </router-link>
     </v-app-bar>
   </div>
 </template>

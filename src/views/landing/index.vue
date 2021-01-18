@@ -7,13 +7,14 @@
     <p class="slogan white--text">
       “If you have never played in Kothbiro we haujui ball”
     </p>
+      <router-link to="/details">Next</router-link>
     <v-img class="mx-auto my-1" width="30%" src="/img/betmoto.png"> </v-img>
     <v-img class="soccer mx-auto " width="30%" src="/img/soccer-guy.png"> </v-img>
   </div>
 </template>
 
 <script>
-import Nav from "../../templates/nav";
+import Nav from "../../components/templates/nav";
 export default {
   components: {
     Nav,

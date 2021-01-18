@@ -2,21 +2,20 @@
   <v-app>
 
 
-    <v-main>
-      <Layout/>
+    <v-main class="bg">
+     
+      <router-view/>
+     
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Layout from './components/Layout';
 
 export default {
   name: 'App',
 
-  components: {
-    Layout,
-  },
+ 
 
   data: () => ({
     //
@@ -33,6 +32,23 @@ export default {
   font-family: "Ubuntu";
   src: local("Ubuntu"),
    url(./fonts/Ubuntu/Ubuntu-Bold.ttf) format("truetype");
+}
+.bg{
+  background: #121421;
+  height:100%;
+  overflow: hidden;
+  
+}
+.year {
+    text-transform: uppercase;
+    color: #ffff;
+    opacity: 0.37;
+    font-size: 16px;
+
+}
+a {  
+  text-decoration: none;
+  
 }
 
 </style>
