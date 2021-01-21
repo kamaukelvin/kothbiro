@@ -1,5 +1,6 @@
 <template>
 <div>
+      <v-content>
    <v-subheader class="subheader">Round of 16(1/8)</v-subheader>
       <v-card
     class="mx-auto games-card"
@@ -22,25 +23,27 @@
       </v-list-item-content>
     </v-list-item>
       </v-card>
+  
+          </v-content>
     <v-bottom-navigation
     v-model="value"
   
     color="primary"
   >
-        <v-btn>
+        <v-btn value="1/8">
       <span>1/8</span>
       
     </v-btn>
 
-    <v-btn>
+    <v-btn value="1/4">
       <span>1/4</span>
     </v-btn>
 
-    <v-btn>
+    <v-btn value="semis">
       <span>Semis</span>
     </v-btn>
 
-    <v-btn>
+    <v-btn value="finals">
       <span>Finals</span>
     </v-btn>
     
@@ -49,10 +52,12 @@
 </template>
 
 <script>
+
 export default {
     name: "Knockout",
  data () {
       return {
+        value: '1/8', 
         games: [
           {
             home: 'Digo United',
@@ -72,6 +77,18 @@ export default {
           },
           ]
       }},
+
+          computed: {
+      getComponentName () {
+        switch (this.value) {
+          case '1/8': return require('../nav');
+          case '1/4': return 'teal'
+          case 'semis': return 'brown'
+          case 'finals': return 'indigo'
+          default: return 'blue-grey'
+        }
+      },
+    },
     methods:{
       navigate(team){
         this.$router.push({ path: `/details/${team}` }) 

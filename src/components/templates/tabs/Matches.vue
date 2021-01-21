@@ -6,11 +6,21 @@
     tile
   >
    <v-list-item two-line>
-      <v-list-item-content >
-
-        <v-list-item-subtitle>Digo United<span class="float-right">2</span></v-list-item-subtitle>
+    
+      <v-list-item-content class="row">
+<div class="col-4 time">
+ <v-list-item-subtitle class="greyed">25|03|20</v-list-item-subtitle>
+        <v-list-item-subtitle class="greyed">10:00 AM</v-list-item-subtitle>
+</div>
+<div class="col-8">
+   <v-list-item-subtitle @click="navigate('team')">Digo United<span class="float-right">2</span></v-list-item-subtitle>
         <v-list-item-subtitle>Dallas All Stars<span class="float-right">2</span></v-list-item-subtitle>
       
+</div>
+       
+ 
+
+       
       </v-list-item-content>
     </v-list-item>
       </v-card>
@@ -19,7 +29,13 @@
 
 <script>
 export default {
-    name: 'Matches'
+    name: 'Matches',
+      methods:{
+      navigate(team){
+        this.$router.push({ path: `/match/${team}` }) 
+      }
+   
+    }
 
 }
 </script>
@@ -46,4 +62,14 @@ background: rgba(255, 255, 255, 0.1) !important;
 border-radius: 5px !important;
 margin-bottom:10px
 }
+.v-list-item .v-list-item__title, .v-list-item .v-list-item__subtitle {
+    line-height: 1.5;
+}
+.time{
+border-right: 2px solid #000;
+}
+.greyed{
+  color: #838383 !important;
+}
+
 </style>

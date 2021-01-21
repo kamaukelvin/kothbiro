@@ -61,7 +61,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .theme--dark.v-data-table{
   background-color: transparent !important
 }

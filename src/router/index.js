@@ -3,6 +3,7 @@ import VueRouter from "vue-router";
 import Landing from "../views/landing";
 import Details from "../views/details";
 import Team from "../views/team";
+import MatchInfo from "../views/matchInfo";
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,10 @@ const routes = [
   { path: "/details/:id",
     name: "team", 
     component: Team
+  },
+  { path: "/match/:id",
+    name: "match", 
+    component: MatchInfo
   },
 
   // page that requires authentication to view
