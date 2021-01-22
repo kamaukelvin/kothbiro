@@ -1,6 +1,13 @@
 <template>
-    <v-simple-table dark>
-      <h2>GROUP A</h2>
+<div>
+
+
+
+  <div v-for="(item ) in groups"
+          :key="item.key">
+      <h2>{{item.data.name}}</h2>
+    <v-simple-table dark      >
+   
     <template v-slot:default>
       <thead>
         <tr>
@@ -32,28 +39,59 @@
       </thead>
       <tbody>
         <tr
-          v-for="(item, index) in teams"
+          v-for="(item) in item.data.teams"
           :key="item.team"
         >
-          <td>{{ index + 1 }}</td>
-          <td>{{ item.team }}</td>
-          <td>{{ item.played}}</td>
-          <td>{{ item.wins }}</td>
-          <td>{{ item.draws }}</td>
-          <td>{{ item.loss }}</td>
-          <td>{{ item.games_played }}</td>
-          <td>{{ item.points }}</td>
+          <td>{{   }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ Object.entries(item.general)[0][1].Played}}</td>
+          <td>{{  Object.entries(item.general)[0][1].Win }}</td>
+          <td>{{ Object.entries(item.general)[0][1].Draw }}</td>
+          <td>{{ Object.entries(item.general)[0][1].Lost }}</td>
+          <td>{{ Object.entries(item.general)[0][1].Goaldifference }}</td>
+          <td>{{Object.entries(item.general)[0][1].Points}}</td>
         </tr>
       </tbody>
     </template>
   </v-simple-table>
+
+</div>
+
+</div>
 </template>
 
 <script>
+
 export default {
     name: "Standings",
+    props:["groups"],
        data () {
       return {
+          headers: [
+          {
+            text: 'Team',
+            value: 'data.name',
+          },
+          {
+            text: 'P',
+            align: 'start',
+            sortable: false,
+            value: 'item.data.name',
+          },
+          {
+            text: 'W',
+            align: 'start',
+            sortable: false,
+            value: 'item.data.name',
+          },
+          {
+            text: 'L',
+            align: 'start',
+            sortable: false,
+            value: 'item.data.name',
+          },
+
+        ],
         teams: [
           {
             team: 'Digo United',
@@ -93,7 +131,28 @@ export default {
           }
         ],
       }
+    },
+    methods:{
+      list_groups(items){
+         let _groups= []
+      items.forEach(item=>{
+       let key = item.key;
+       let data = item.val()
+ _groups.push({
+   key,
+   data
+ })
+ console.log("the groups",_groups)
+ this.groups=_groups
+
+    })}
+    },
+    
+    mounted(){
+      console.log("the props", this.groups)
+      
     }
+
 
 }
 </script>

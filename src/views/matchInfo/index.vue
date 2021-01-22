@@ -35,7 +35,7 @@
       color="#00FF85"
     >
       <template v-slot:opposite>
-        <span
+       <span>{{event.card}}</span> <span
          class="minutes"
           v-text="`${event.minute}`"
         ></span>
@@ -64,6 +64,7 @@ export default {
         {
           player: 'Nyari Leo',
           minute: '19',
+
         },
     
         {
@@ -129,8 +130,6 @@ export default {
   font-size:12px;
 
 }
-
-
 .v-timeline-item__dot--small {
     height: 10px !important;
     left: calc(50% - 12px);
