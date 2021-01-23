@@ -1,10 +1,17 @@
 <template>
   <div>
+
+      <div  v-for="(item ) in fixtures"
+          :key="item.key"><h1>{{item.data}}</h1></div>
             <v-card
     class="mx-auto games-card"
     max-width="400"
     tile
+     v-for="(item ) in fixtures"
+          :key="item.key"
   >
+
+
    <v-list-item two-line>
     
       <v-list-item-content class="row">
@@ -28,13 +35,36 @@
 </template>
 
 <script>
+import FirebaseService from '../../../services/FirebaseService'
 export default {
     name: 'Matches',
+     data() {
+    return {
+      fixtures:[]
+    };
+  },
+    
       methods:{
       navigate(team){
         this.$router.push({ path: `/match/${team}` }) 
-      }
+      },
+        get_fixtures(items){
+         let _fixtures= []
+      items.forEach(item=>{
+       let key = item.key;
+       let data = item.val()
+       console.log("THE DATA", data)
+ _fixtures.push({
+   key,
+   data:data.fixtures
+ })
+ 
+ this.fixtures=_fixtures
+ console.log("the fixtures 1",this.fixtures)
    
+     })}},
+     mounted(){
+      FirebaseService.getAll().on("value", this.get_fixtures);
     }
 
 }

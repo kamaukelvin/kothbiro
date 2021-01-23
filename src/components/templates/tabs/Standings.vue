@@ -5,7 +5,7 @@
 
   <div v-for="(item ) in groups"
           :key="item.key">
-      <h2>{{item.data.name}}</h2>
+      <h2>{{item.data.teams}}</h2>
     <v-simple-table dark      >
    
     <template v-slot:default>
@@ -42,8 +42,8 @@
           v-for="(item) in item.data.teams"
           :key="item.team"
         >
-          <td>{{   }}</td>
-          <td>{{ item.name }}</td>
+          <td> {{ Object.entries(item.general)[0][1] }}</td>
+          <td @click="navigate(item.name)">{{ item.name }}</td>
           <td>{{ Object.entries(item.general)[0][1].Played}}</td>
           <td>{{  Object.entries(item.general)[0][1].Win }}</td>
           <td>{{ Object.entries(item.general)[0][1].Draw }}</td>
@@ -67,69 +67,8 @@ export default {
     props:["groups"],
        data () {
       return {
-          headers: [
-          {
-            text: 'Team',
-            value: 'data.name',
-          },
-          {
-            text: 'P',
-            align: 'start',
-            sortable: false,
-            value: 'item.data.name',
-          },
-          {
-            text: 'W',
-            align: 'start',
-            sortable: false,
-            value: 'item.data.name',
-          },
-          {
-            text: 'L',
-            align: 'start',
-            sortable: false,
-            value: 'item.data.name',
-          },
-
-        ],
-        teams: [
-          {
-            team: 'Digo United',
-            played: 5,
-            wins: 3,
-            draws: 0,
-            loss:1,
-            games_played:3,
-            points: 9
-          },
-          {
-            team: 'Dallas All Stars',
-            played: 5,
-            wins: 3,
-            draws: 0,
-            loss:1,
-            games_played:3,
-            points: 9
-          },
-          {
-            team: 'Kayole Sportif',
-            played: 5,
-            wins: 3,
-            draws: 0,
-            loss:1,
-            games_played:3,
-            points: 9
-          },
-          {
-            team: 'Umeme bees',
-            played: 5,
-            wins: 3,
-            draws: 0,
-            loss:1,
-            games_played:3,
-            points: 9
-          }
-        ],
+     
+    
       }
     },
     methods:{
@@ -145,14 +84,15 @@ export default {
  console.log("the groups",_groups)
  this.groups=_groups
 
-    })}
+    })},
+     
+      navigate(team){
+        this.$router.push({ path: `/details/${team}` }) 
+      }
+    
     },
     
-    mounted(){
-      console.log("the props", this.groups)
-      
-    }
-
+  
 
 }
 </script>
